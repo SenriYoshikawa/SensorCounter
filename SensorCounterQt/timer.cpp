@@ -4,21 +4,20 @@
 
 Timer::Timer(QWidget *parent) : QWidget(parent)
 {
-    qtimer = new QTimer(this);
-    //connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-    //timer->start(1000);
-    //setWindowTitle(tr("Analog Clock"));
-    //resize(200, 200);
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    time = QTime(0,0,0);
 }
 
 
 
 void Timer::paintEvent(QPaintEvent *)
 {
+    //qDebug() << time.second();
     static const QPoint needle[3] = {
-        QPoint(7, 8),
-        QPoint(-7, 8),
-        QPoint(0, -40)
+        QPoint(5, 8),
+        QPoint(-5, 8),
+        QPoint(0, -80)
     };
 
     QColor needleColor(127, 0, 127);
@@ -31,7 +30,7 @@ void Timer::paintEvent(QPaintEvent *)
     painter.setPen(Qt::NoPen);
     painter.setBrush(needleColor);
     painter.save();
-    painter.rotate(time * 60);
+    painter.rotate(time.second() * 6);
     painter.drawConvexPolygon(needle, 3);
     painter.restore();
 
@@ -57,26 +56,28 @@ void Timer::paintEvent(QPaintEvent *)
         painter.rotate(6.0);
     }
 */
-    if(time == 60)
+    if(time.second() == 60)
     {
         // TODO: カウントを記録してリセットする
     }
-}
-/*
-void Timer::start()
-{
-    qtimer->start(1000);
+
+    if(timer->isActive())
+    {
+        time = time.addMSecs(100);
+    }
 }
 
-void Timer::stop()
+void Timer::start()
 {
-    qtimer->stop();
+    timer->start(100);
+    qDebug() << "start called";
 }
-*/
-/*
+
 void Timer::reset()
 {
-    qtimer->stop();
-    qtimer->set = 0;
+    timer->stop();
+    time = QTime(0,0,0);
+    update();
+    qDebug() << "reset called";
 }
-*/
+

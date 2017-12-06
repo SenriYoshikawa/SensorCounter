@@ -2,6 +2,7 @@
 #define TIMER_HPP
 
 #include "QWidget"
+#include <QTime>
 
 class Timer : public QWidget
 {
@@ -9,13 +10,13 @@ class Timer : public QWidget
 public:
     Timer(QWidget *parent);
 
-//    void start();
-//    void stop();
+    void start();
+    void reset();
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    QTimer *qtimer;
-    std::size_t time;
+    QTimer *timer;
+    QTime time;
 };
 
 #endif // TIMER_HPP
