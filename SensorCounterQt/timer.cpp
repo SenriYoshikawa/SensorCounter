@@ -1,6 +1,5 @@
 #include "timer.hpp"
-
-#include "QtWidgets"
+#include <QtWidgets>
 
 Timer::Timer(QWidget *parent) : QWidget(parent)
 {
@@ -13,7 +12,6 @@ Timer::Timer(QWidget *parent) : QWidget(parent)
 
 void Timer::paintEvent(QPaintEvent *)
 {
-    //qDebug() << time.second();
     static const QPoint needle[3] = {
         QPoint(5, 8),
         QPoint(-5, 8),
@@ -40,25 +38,10 @@ void Timer::paintEvent(QPaintEvent *)
         painter.drawLine(88, 0, 96, 0);
         painter.rotate(30.0);
     }
-/*
-    painter.setPen(Qt::NoPen);
-    painter.setBrush(minuteColor);
 
-    painter.save();
-    painter.rotate(6.0 * (time.minute() + time.second() / 60.0));
-    painter.drawConvexPolygon(minuteHand, 3);
-    painter.restore();
-    painter.setPen(minuteColor);
-
-    for (int j = 0; j < 60; ++j) {
-        if ((j % 5) != 0)
-            painter.drawLine(92, 0, 96, 0);
-        painter.rotate(6.0);
-    }
-*/
     if(time.second() == 60)
     {
-        // TODO: カウントを記録してリセットする
+        timer->stop();
     }
 
     if(timer->isActive())
@@ -70,7 +53,6 @@ void Timer::paintEvent(QPaintEvent *)
 void Timer::start()
 {
     timer->start(100);
-    qDebug() << "start called";
 }
 
 void Timer::reset()
@@ -78,6 +60,5 @@ void Timer::reset()
     timer->stop();
     time = QTime(0,0,0);
     update();
-    qDebug() << "reset called";
 }
 

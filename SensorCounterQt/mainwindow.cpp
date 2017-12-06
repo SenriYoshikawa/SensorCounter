@@ -20,9 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
         qDebug() << "reset pushed";
     });
 
-
-
-
 }
 
 MainWindow::~MainWindow()
