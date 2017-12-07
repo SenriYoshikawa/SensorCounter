@@ -11,11 +11,13 @@ lcdcontrolor::lcdcontrolor(QObject *parent, QLCDNumber* &_lcd, QTimer *&_timer) 
 
 }
 
-lcdcontrolor::dataArrive(int n)
+lcdcontrolor::dataArrive(int data)
 {
-    if(timer->isActive())
+    if(timer->isActive() && pre_data == 0 && data == 1)
     {
-        lcd->display(n);
+        count += 1;
+        lcd->display(count);
     }
+    pre_data = data;
     return 0;
 }

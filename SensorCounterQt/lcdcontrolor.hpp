@@ -15,10 +15,13 @@ public:
 private:
     QLCDNumber *lcd;
     QTimer *timer;
+    int count = 0;
+    int pre_data = 0;
+
 signals:
 
 public slots:
-    dataArrive(int n);
+    dataArrive(int data);
 };
 
 #endif // LCDCONTROLOR_H
