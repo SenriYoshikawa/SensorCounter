@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWind
     ui->setupUi(this);
 
     serialcommunicator *serial = new serialcommunicator(this);
-    lcdcontrolor *lcd = new lcdcontrolor(this, ui->lcdNumber);
+    lcdcontrolor *lcd = new lcdcontrolor(this, ui->lcdNumber, ui->timerWidget->timer);
 
     connect(serial, &serialcommunicator::dataArrived, lcd, lcdcontrolor::dataArrive);
 

@@ -59,7 +59,7 @@ void Timer::start()
 void Timer::reset()
 {
     timer->stop();
-    time = QTime(0,0,0);
+    time.setHMS(0,0,0);
     update();
 }
 

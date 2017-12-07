@@ -14,8 +14,9 @@ public:
     void reset();
     void paintEvent(QPaintEvent *event) override;
 
-private:
     QTimer *timer;
+
+private:
     QTime time;
 };
 
