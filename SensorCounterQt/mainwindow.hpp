@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    int current_count = 0;
+
 };
 
 #endif // MAINWINDOW_HPP

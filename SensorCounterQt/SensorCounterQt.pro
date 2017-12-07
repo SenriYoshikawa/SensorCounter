@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,9 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    timer.cpp
+    timer.cpp \
+    serialcommunicator.cpp \
+    lcdcontrolor.cpp
 
 HEADERS  += mainwindow.hpp \
-    timer.hpp
+    timer.hpp \
+    serialcommunicator.hpp \
+    lcdcontrolor.hpp
 
 FORMS    += mainwindow.ui

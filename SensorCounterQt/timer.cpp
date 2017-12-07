@@ -39,8 +39,9 @@ void Timer::paintEvent(QPaintEvent *)
         painter.rotate(30.0);
     }
 
-    if(time.second() == 60)
+    if(time.minute() == 1)
     {
+        time.setHMS(0,0,0);
         timer->stop();
     }
 
