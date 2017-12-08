@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui serialport
+QT       += core gui serialport charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,11 +27,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     timer.cpp \
     serialcommunicator.cpp \
-    lcdcontrolor.cpp
+    lcdcontrolor.cpp \
+    chartcontrolor.cpp
 
 HEADERS  += mainwindow.hpp \
     timer.hpp \
     serialcommunicator.hpp \
-    lcdcontrolor.hpp
+    lcdcontrolor.hpp \
+    chartcontrolor.hpp
 
 FORMS    += mainwindow.ui

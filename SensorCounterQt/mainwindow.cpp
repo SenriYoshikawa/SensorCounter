@@ -3,6 +3,7 @@
 #include "timer.hpp"
 #include "serialcommunicator.hpp"
 #include "lcdcontrolor.hpp"
+#include "chartcontrolor.hpp"
 
 #include <qdebug.h>
 
@@ -12,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWind
 
     serialcommunicator *serial = new serialcommunicator(this);
     lcdcontrolor *lcd = new lcdcontrolor(this, ui->lcdNumber, ui->timerWidget->timer);
+    //chartcontrolor *chart = new chartcontrolor(this, ui->chartWidget);
 
     connect(serial, &serialcommunicator::dataArrived, lcd, lcdcontrolor::dataArrive);
 
@@ -24,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWind
         ui->timerWidget->reset();
         qDebug() << "reset pushed";
     });
+
+   // chart->update();
 
 
 }

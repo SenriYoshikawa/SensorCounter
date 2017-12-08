@@ -1,7 +1,7 @@
 #ifndef TIMER_HPP
 #define TIMER_HPP
 
-#include "QWidget"
+#include <QWidget>
 #include <QTime>
 
 class Timer : public QWidget
