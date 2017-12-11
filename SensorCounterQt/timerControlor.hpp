@@ -1,5 +1,5 @@
-#ifndef TIMER_HPP
-#define TIMER_HPP
+#ifndef TIMERCONTROLOR_HPP
+#define TIMERCONTROLOR_HPP
 
 #include <QWidget>
 #include <QTime>
@@ -18,6 +18,12 @@ public:
 
 private:
     QTime time;
+
+signals:
+    void dataPlotSgl(int data, int msec);
+
+public slots:
+    dataArrive(int data);
 };
 
-#endif // TIMER_HPP
+#endif // TIMERCONTROLOR_HPP

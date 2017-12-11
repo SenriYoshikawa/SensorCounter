@@ -19,10 +19,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="chartWidget">
+  <widget class="QWidget" name="widget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="Timer" name="timerWidget" native="true">
+     <widget class="timerControlor" name="timerWidget" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -71,7 +71,7 @@
      </widget>
     </item>
     <item row="1" column="0" colspan="2">
-     <widget class="chartcontrolor" name="widget" native="true">
+     <widget class="chartcontrolor" name="chartWidget" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -111,15 +111,15 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>Timer</class>
-   <extends>QWidget</extends>
-   <header>timerControlor.hpp</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>chartcontrolor</class>
    <extends>QWidget</extends>
    <header>chartcontrolor.hpp</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>timerControlor</class>
+   <extends>QWidget</extends>
+   <header>timercontrolor.hpp</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -7,7 +7,7 @@
 
 chartcontrolor::chartcontrolor(QWidget *parent) : QWidget(parent)
 {
-    QtCharts::QLineSeries *series = new QtCharts::QLineSeries();
+    series = new QtCharts::QLineSeries();
     series->append(0, 6);
     series->append(2, 4);
     series->append(3, 8);
@@ -31,9 +31,11 @@ chartcontrolor::chartcontrolor(QWidget *parent) : QWidget(parent)
 
 }
 
-void chartcontrolor::paintEvent(QPaintEvent *)
+chartcontrolor::dataPlotSlt(int data, int msec)
 {
+    series->append(data, msec);
     update();
+    return 0;
 }
 
 

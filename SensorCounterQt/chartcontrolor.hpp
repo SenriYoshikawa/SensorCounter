@@ -15,14 +15,17 @@ class chartcontrolor : public QWidget
 {
     Q_OBJECT
 public:
-    explicit chartcontrolor(QWidget *parent = 0);
+    chartcontrolor(QWidget *parent);
     ~chartcontrolor();
 
-    void paintEvent(QPaintEvent *event) override;
+private:
+    QtCharts::QLineSeries *series;
 
 signals:
 
 public slots:
+    dataPlotSlt(int data, int msec);
+
 };
 
 #endif // CHARTCONTROLOR_HPP

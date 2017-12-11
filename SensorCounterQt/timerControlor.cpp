@@ -51,6 +51,14 @@ void timerControlor::paintEvent(QPaintEvent *)
     }
 }
 
+timerControlor::dataArrive(int data)
+{
+    if(timer->isActive())
+    {
+        emit dataPlotSgl(data, time.msec());
+    }
+}
+
 void timerControlor::start()
 {
     timer->start(100);

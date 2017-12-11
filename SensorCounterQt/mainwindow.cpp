@@ -13,9 +13,10 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWind
 
     serialcommunicator *serial = new serialcommunicator(this);
     lcdcontrolor *lcd = new lcdcontrolor(this, ui->lcdNumber, ui->timerWidget->timer);
-    //chartcontrolor *chart = new chartcontrolor(this, ui->chartWidget);
 
     connect(serial, &serialcommunicator::dataArrived, lcd, lcdcontrolor::dataArrive);
+    connect(serial, &serialcommunicator::dataArrived, ui->timerWidget, timerControlor::dataArrive);
+    connect(ui->timerWidget, timerControlor::dataPlotSgl, ui->chartWidget, chartcontrolor::dataPlotSlt);
 
     connect(ui->startButton, &QPushButton::clicked, [=](){
         ui->timerWidget->start();
