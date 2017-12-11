@@ -8,18 +8,23 @@
 chartcontrolor::chartcontrolor(QWidget *parent) : QWidget(parent)
 {
     series = new QtCharts::QLineSeries();
-    series->append(0, 6);
-    series->append(2, 4);
-    series->append(3, 8);
-    series->append(7, 4);
-    series->append(10, 5);
-    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
 
     QtCharts::QChart *chart = new QtCharts::QChart();
+
     chart->legend()->hide();
     chart->addSeries(series);
+
+    QtCharts::QValueAxis *axisX = new QtCharts::QValueAxis;
+    axisX->setRange(0,60000);
+    axisX->setTickCount(1000);
+    chart->setAxisX(axisX, series);
+
+    QtCharts::QValueAxis *axisY = new QtCharts::QValueAxis;
+    axisY->rangeChanged(-0.1, 1.1);
+    axisY->setTickCount(1);
+    chart->setAxisY(axisY, series);
+
     chart->createDefaultAxes();
-    //chart->setTitle("Simple line chart example");
 
     QtCharts::QChartView *chartView = new QtCharts::QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
@@ -33,7 +38,8 @@ chartcontrolor::chartcontrolor(QWidget *parent) : QWidget(parent)
 
 chartcontrolor::dataPlotSlt(int data, int msec)
 {
-    series->append(data, msec);
+    series->append(msec, data);
+    qDebug() << data << msec;
     update();
     return 0;
 }
@@ -44,3 +50,5 @@ chartcontrolor::~chartcontrolor()
 {
 
 }
+
+

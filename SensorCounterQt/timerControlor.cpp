@@ -55,8 +55,10 @@ timerControlor::dataArrive(int data)
 {
     if(timer->isActive())
     {
-        emit dataPlotSgl(data, time.msec());
+        emit dataPlotSgl(data, time.second() * 1000 + time.msec());
+        return 0;
     }
+    return 1;
 }
 
 void timerControlor::start()
