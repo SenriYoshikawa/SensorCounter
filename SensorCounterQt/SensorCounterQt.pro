@@ -25,15 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    timer.cpp \
     serialcommunicator.cpp \
     lcdcontrolor.cpp \
-    chartcontrolor.cpp
+    chartcontrolor.cpp \
+    timerControlor.cpp
 
 HEADERS  += mainwindow.hpp \
-    timer.hpp \
     serialcommunicator.hpp \
     lcdcontrolor.hpp \
-    chartcontrolor.hpp
+    chartcontrolor.hpp \
+    timerControlor.hpp
 
 FORMS    += mainwindow.ui

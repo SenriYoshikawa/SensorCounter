@@ -113,7 +113,7 @@
   <customwidget>
    <class>Timer</class>
    <extends>QWidget</extends>
-   <header>timer.hpp</header>
+   <header>timerControlor.hpp</header>
    <container>1</container>
   </customwidget>
   <customwidget>

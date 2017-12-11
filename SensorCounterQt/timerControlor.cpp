@@ -1,7 +1,7 @@
-#include "timer.hpp"
+#include "timerControlor.hpp"
 #include <QtWidgets>
 
-Timer::Timer(QWidget *parent) : QWidget(parent)
+timerControlor::timerControlor(QWidget *parent) : QWidget(parent)
 {
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
@@ -10,7 +10,7 @@ Timer::Timer(QWidget *parent) : QWidget(parent)
 
 
 
-void Timer::paintEvent(QPaintEvent *)
+void timerControlor::paintEvent(QPaintEvent *)
 {
     static const QPoint needle[3] = {
         QPoint(5, 8),
@@ -51,12 +51,12 @@ void Timer::paintEvent(QPaintEvent *)
     }
 }
 
-void Timer::start()
+void timerControlor::start()
 {
     timer->start(100);
 }
 
-void Timer::reset()
+void timerControlor::reset()
 {
     timer->stop();
     time.setHMS(0,0,0);

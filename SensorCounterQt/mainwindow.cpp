@@ -1,6 +1,6 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
-#include "timer.hpp"
+#include "timerControlor.hpp"
 #include "serialcommunicator.hpp"
 #include "lcdcontrolor.hpp"
 #include "chartcontrolor.hpp"

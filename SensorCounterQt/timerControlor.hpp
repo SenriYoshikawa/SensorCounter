@@ -4,11 +4,11 @@
 #include <QWidget>
 #include <QTime>
 
-class Timer : public QWidget
+class timerControlor : public QWidget
 {
     Q_OBJECT
 public:
-    Timer(QWidget *parent);
+    timerControlor(QWidget *parent);
 
     void start();
     void reset();
