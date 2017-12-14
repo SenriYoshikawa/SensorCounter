@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent),ui(new Ui::MainWind
 
     connect(ui->resetButton, &QPushButton::clicked, [=](){
         ui->chartWidget->reset();
-        ui->timerWidget->reset();
+        ui->timerWidget->reset();        
         lcd->reset();
         qDebug() << "reset pushed";
     });

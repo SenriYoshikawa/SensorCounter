@@ -25,4 +25,5 @@ lcdcontrolor::dataArrive(int data)
 void lcdcontrolor::reset()
 {
     count = 0;
+    lcd->display(0);
 }
