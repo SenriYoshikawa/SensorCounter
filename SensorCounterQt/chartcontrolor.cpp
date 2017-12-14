@@ -7,6 +7,11 @@
 
 chartcontrolor::chartcontrolor(QWidget *parent) : QWidget(parent)
 {
+    generateChart();
+}
+
+void chartcontrolor::generateChart()
+{
     series = new QtCharts::QLineSeries();
 
     QtCharts::QChart *chart = new QtCharts::QChart();
@@ -20,8 +25,8 @@ chartcontrolor::chartcontrolor(QWidget *parent) : QWidget(parent)
     chart->setAxisX(axisX, series);
 
     QtCharts::QValueAxis *axisY = new QtCharts::QValueAxis;
-    axisY->rangeChanged(-0.1, 1.1);
-    axisY->setTickCount(1);
+    axisY->setRange(0, 500);
+    axisY->setTickCount(100);
     chart->setAxisY(axisY, series);
 
     chart->createDefaultAxes();
@@ -33,7 +38,6 @@ chartcontrolor::chartcontrolor(QWidget *parent) : QWidget(parent)
     chartLayout->addWidget(chartView);
 
     this->setLayout(chartLayout);
-
 }
 
 chartcontrolor::dataPlotSlt(int data, int msec)
@@ -44,7 +48,11 @@ chartcontrolor::dataPlotSlt(int data, int msec)
     return 0;
 }
 
-
+void chartcontrolor::reset()
+{
+    series->clear();
+    update();
+}
 
 chartcontrolor::~chartcontrolor()
 {

@@ -18,9 +18,12 @@ public:
     chartcontrolor(QWidget *parent);
     ~chartcontrolor();
 
+    void reset();
+
 private:
     QtCharts::QLineSeries *series;
 
+    void generateChart();
 signals:
 
 public slots:

@@ -12,6 +12,7 @@ public:
     explicit lcdcontrolor(QObject *parent = 0);
     lcdcontrolor(QObject *parent, QLCDNumber* &_lcd, QTimer *&_timer);
 
+    void reset();
 private:
     QLCDNumber *lcd;
     QTimer *timer;

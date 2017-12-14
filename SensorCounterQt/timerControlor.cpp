@@ -53,7 +53,7 @@ void timerControlor::paintEvent(QPaintEvent *)
 
 timerControlor::dataArrive(int data)
 {
-    if(timer->isActive())
+    if(timer->isActive() && time.minute() == 0)
     {
         emit dataPlotSgl(data, time.second() * 1000 + time.msec());
         return 0;

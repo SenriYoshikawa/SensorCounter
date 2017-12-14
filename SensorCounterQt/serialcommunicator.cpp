@@ -5,7 +5,7 @@ serialcommunicator::serialcommunicator(QObject *parent) : QObject(parent)
 {
     QSerialPortInfo info = QSerialPortInfo::availablePorts().at(0);
     serial_port.setPortName(info.portName());
-    serial_port.setBaudRate(QSerialPort::Baud38400);
+    serial_port.setBaudRate(QSerialPort::Baud9600);
     serial_port.setDataBits(QSerialPort::Data8);
     serial_port.setParity(QSerialPort::NoParity);
     serial_port.setStopBits(QSerialPort::OneStop);
@@ -27,6 +27,7 @@ serialcommunicator::~serialcommunicator()
 void serialcommunicator::ready_read_line()
 {
     QString raw_str = serial_port.readLine(64);
+
     emit dataArrived(raw_str.toInt());
-    //qDebug() << "reciev raw data = " << raw_str;
+    qDebug() << "reciev raw data = " << raw_str;
 }
